@@ -40,21 +40,21 @@ This document describes all available configuration options for the REST API tes
 The tool supports three authentication methods. Configure one based on your API's requirements.
 
 ### Basic Authentication
-- REST_BASIC_USERNAME: Username for Basic Auth
-- REST_BASIC_PASSWORD: Password for Basic Auth
+- AUTH_BASIC_USERNAME: Username for Basic Auth
+- AUTH_BASIC_PASSWORD: Password for Basic Auth
 - Usage: When both are set, requests will include Basic Auth header
 
 ### Bearer Token
-- REST_BEARER: Bearer token value
+- AUTH_BEARER: Bearer token value
 - Usage: When set, requests will include `Authorization: Bearer <token>` header
 
 ### API Key
-- REST_APIKEY_HEADER_NAME: Name of the header for API key
-- REST_APIKEY_VALUE: Value of the API key
+- AUTH_APIKEY_HEADER_NAME: Name of the header for API key
+- AUTH_APIKEY_VALUE: Value of the API key
 - Example:
   ```
-  REST_APIKEY_HEADER_NAME=X-API-Key
-  REST_APIKEY_VALUE=your-api-key-here
+  AUTH_APIKEY_HEADER_NAME=X-API-Key
+  AUTH_APIKEY_VALUE=your-api-key-here
   ```
 - Usage: When both are set, requests will include the specified header with the API key
 
@@ -70,21 +70,21 @@ REST_RESPONSE_SIZE_LIMIT=50000
 ### Production API with Bearer Token
 ```bash
 REST_BASE_URL=https://api.example.com
-REST_BEARER=your-bearer-token
+AUTH_BEARER=your-bearer-token
 ```
 
 ### API with Basic Auth
 ```bash
 REST_BASE_URL=https://api.example.com
-REST_BASIC_USERNAME=admin
-REST_BASIC_PASSWORD=secret
+AUTH_BASIC_USERNAME=admin
+AUTH_BASIC_PASSWORD=secret
 ```
 
 ### API with API Key
 ```bash
 REST_BASE_URL=https://api.example.com
-REST_APIKEY_HEADER_NAME=X-API-Key
-REST_APIKEY_VALUE=your-api-key
+AUTH_APIKEY_HEADER_NAME=X-API-Key
+AUTH_APIKEY_VALUE=your-api-key
 ```
 
 ### API with Custom Headers

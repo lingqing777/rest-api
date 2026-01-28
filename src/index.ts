@@ -338,14 +338,19 @@ class RestTester {
               },
               body: {
                 type: 'object',
-                description: 'Optional request body for POST/PUT requests',
+                description: 'Request body for POST/PUT/PATCH requests. Can contain any JSON structure.',
+                additionalProperties: true
               },
               headers: {
                 type: 'object',
-                description: 'Optional request headers for one-time use. IMPORTANT: Do not use for sensitive data like API keys - those should be configured via environment variables. This parameter is intended for dynamic, non-sensitive headers that may be needed for specific requests.',
+                description: 'Custom request headers. Do not use for sensitive data like API keys - those should be configured via environment variables.',
                 additionalProperties: {
                   type: 'string'
                 }
+              },
+              host: {
+                type: 'string',
+                description: 'Override the base URL for this request. Must be a valid URL starting with http:// or https:// (e.g. "https://api.example.com" or "http://localhost:3001/api/v1")'
               }
             },
             required: ['method', 'endpoint'],
